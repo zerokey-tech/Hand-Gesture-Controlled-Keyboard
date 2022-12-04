@@ -25,7 +25,7 @@ def draw(img, buttonList):
         w, h = button.size
         cvzone.cornerRect(img, (button.pos[0], button.pos[1],
                                                    button.size[0],button.size[0]), 20 ,rt=0)
-        cv2.rectangle(img, button.pos, (int(x + w), int(y + h)), (255, 144, 30), cv2.FILLED)
+        cv2.rectangle(img, button.pos, (int(x + w), int(y + h)), (25, 100, 30), cv2.FILLED)
         cv2.putText(img, button.text, (x + 20, y + 65),
                     cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
     return img
@@ -38,7 +38,7 @@ def transparent_layout(img, buttonList):
         cvzone.cornerRect(imgNew, (button.pos[0], button.pos[1],
                                                    button.size[0],button.size[0]), 20 ,rt=0)
         cv2.rectangle(imgNew, button.pos, (x + button.size[0], y + button.size[1]),
-                                   (255, 144, 30), cv2.FILLED)
+                                   (25, 100, 30), cv2.FILLED)
         cv2.putText(imgNew, button.text, (x + 20, y + 65),
                     cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
 
@@ -77,7 +77,7 @@ while True:
 
             if x < lmList[8][0]<x+w and y < lmList[8][1] < y+h:
                 cv2.rectangle(img, button.pos, (x + w, y + h),
-                              (0, 255, 255), cv2.FILLED)
+                              (255, 155, 255), cv2.FILLED)
                 cv2.putText(img, button.text, (x + 20, y + 65),
                             cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
                 l, _, _ = detector.findDistance(8,12, img, draw=False)
@@ -86,7 +86,7 @@ while True:
                 if l < 25:
                     keyboard.press(button.text)
                     cv2.rectangle(img, button.pos, (x + w, y + h),
-                                  (0, 255, 0), cv2.FILLED)
+                                  (25, 255, 0), cv2.FILLED)
                     cv2.putText(img, button.text, (x + 20, y + 65),
                                 cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
                     final_text += button.text
